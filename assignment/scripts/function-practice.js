@@ -8,84 +8,181 @@ console.log('***** Function Practice *****');
 function hello() {
   return 'Hello World!';
 }
-// Call the function to test
+console.log(hello());
 console.log('Test - should say "Hello World!"', hello());
+
+
+// Call the function to test
+
 
 
 // 2. Function to return an personalized hello, using the `name` argument.
 //    for example 'Hello, Jo!', or 'Hello, Stacy!'
-function helloName(name) {
-  return;
-}
+
+function helloName(name) { 
+  return `Hello, ${name}!`  
+ 
+};
+  console.log(helloName('Shobha'));
+  
+  
+
+  
 // Remember to call the function to test
 
 
 // 3. Function to add two numbers together & return the result
-function addNumbers(firstNumber) {
+function addNumbers(firstNumber,secondNumber) {
+return firstNumber + secondNumber;
+
   // return firstNumber + secondNumber;
 }
+console.log('Adding two numbers 2 and 5 is equal to ',addNumbers(2,5));
 
 
 // 4. Function to multiply three numbers & return the result
-function multiplyThree() {
+function multiplyThree(firstNumber,secondNumber,thirdNumber) {
+  return firstNumber*secondNumber*thirdNumber;
 
 }
+console.log('Multiply three numbers (2,3,5) is equal to ',multiplyThree(2,3,5));
 
 
 // 5. Function that will return true if a number is positive, 
 //    or greater than zero, and false otherwise
 function isPositive(number) {
   if (number > 0) {
-    return;
+    return true;
+  }else{
+  return false;
   }
-  return;
 }
+
+console.log('Number 7 is positive ',isPositive(7));
+console.log('Number minus 2 is negative ',isPositive(-2));
+
+
 // Call the function to test each outcome (true & false) 
 // Write a separate console.log statement for each outcome
 
 
 // 6. Function to return the _last_ item in an array. If the 
 //    array is empty, return `undefined`.
-function getLast(array) {
 
+//1st condition solution.
+
+function getLast(array) {
+  let lastValue = array.length-1;
+  let lastPosition = array[lastValue];
+  
+  return lastPosition;
 }
+console.log('Last position in array is ',getLast(['A','B','C','D']));
+
+//2nd condition solution.If array value is not defind:
+
+
+function getLast(array) {
+  let lastValue = array.length-1;
+  let lastPosition = array[lastValue];
+  
+  return lastPosition;
+}
+console.log('Last position in array is ',getLast([]));
+
+
 
 // 7. Function to find a value in an array. Return true if the 
 //    value is found and false otherwise. Use a loop;
 //    DO NOT use Array.includes, Array.indexOf, or Array.find 
-function find(value, array) {
+//
+function find(value,array) {
+  for(let i = 0; i<=array.length;i++){
+    
+    if (array[i] === value){
+      return true;
+    }
+      
+    }
+    return false;
 
-}
+  }  
+
+console.log('Value in a array ',find('Fish', ['Cat','Dog','Fish','Bird']));
+
+
 
 // ----------------------
 // Stretch Goals
 // ----------------------
 // 8. Function to check if a letter is the first letter in a 
 //    string. Return true if it is, and false otherwise
-function isFirstLetter(letter, string) {
+  function isFirstLetter(letter, string) {
+  if(letter === string[0]){
+    return true;
 
+} else{
+  return false;
 }
+  }
+console.log('Letter in a string ',isFirstLetter('S','Shobha'));
 
 
 // 9. Function to return the sum of all numbers in an array
+
 function sumAll(array) {
-  let sum = 0;
+  let sum = 0
   // TODO: loop to add items
+  for(let i  = 0;  i < array.length; i++){
+    sum  += array[i];
+  }   
 
   // TODO: return the sum
+  return sum;
 }
+console.log('Sum of all numbers in array ',sumAll([1,2,3,4,5]));
 
 // 10. Function to return a new array of all positive (greater than zero)
 //     numbers contained in an input array. If there are no positive numbers
 //     return an empty array. Note: The input array should not change.
-function allPositive() {
 
+
+const num = [0, -2, 3, -4, 5];
+
+function allPositive(inputArray) {
+  let  positiveNumber = [];
+  
+  for(let i =0; i < inputArray.length; i++){
+    if (inputArray[i] > 0){
+      positiveNumber.push(inputArray[i]);      
+    }
+  }
+  return positiveNumber;
 }
+
+console.log('All positive number is ',allPositive(num));
+console.log('All positive number is ',allPositive(num));
 
 
 // 11. Pick a problem from Edabit(https://edabit.com/) or 
 //     CodeWars(https://www.codewars.com/). Then describe it 
 //     here in a comment, write the function, and test it!
+
+//Create a function that returns the sum of the two lowest positive 
+//numbers given an array of minimum 4 positive integers. 
+//No floats or non-positive integers will be passed.
+
+function sumTwoLowestNumber(array){
+
+  let number = array.sort((a,b) => a-b);
+  console.log('Numbers in array ',number);
+  let sum = array[0] + array[1];
+  return sum;
+
+}
+console.log('Sum of two lowest number from array ',sumTwoLowestNumber([25,59,47,27,100]));
+
+
 
 
 // DO NOT MODIFY
